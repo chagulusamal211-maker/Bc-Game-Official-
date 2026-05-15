@@ -26,7 +26,7 @@ import { db } from './lib/firebase';
 
 // Mock social icons as the images have many custom silhouettes
 const SocialIcon = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-  <div className={`w-9 h-9 flex items-center justify-center rounded-lg bg-[#24262b] border border-[#2d3035] hover:bg-[#2d3035] cursor-pointer transition-colors ${className}`}>
+  <div className={`w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 cursor-pointer transition-colors ${className}`}>
     {children}
   </div>
 );
@@ -522,24 +522,24 @@ export default function App() {
                 </div>
 
                 <div className="space-y-3">
-                  <button type="button" className="w-full flex items-center justify-center gap-3 bg-[#24262b] border border-[#2d3035] py-3 rounded-lg text-sm font-bold hover:bg-[#2d3035] transition-all">
-                    <div className="w-5 h-5 bg-[#00e58b]/20 flex items-center justify-center rounded text-[#00e58b]">C</div>
+                  <button type="button" className="w-full flex items-center justify-center gap-3 bg-white/5 border border-white/10 py-3 rounded-lg text-sm font-bold hover:bg-white/10 transition-all">
+                    <div className="w-5 h-5 bg-white/10 flex items-center justify-center rounded text-white font-black">C</div>
                     Cwallet
                   </button>
-                  <button type="button" className="w-full flex items-center justify-center gap-3 bg-[#24262b] border border-[#2d3035] py-3 rounded-lg text-sm font-bold hover:bg-[#2d3035] transition-all">
-                    <UserIcon size={18} className="text-[#8e9299]" />
+                  <button type="button" className="w-full flex items-center justify-center gap-3 bg-white/5 border border-white/10 py-3 rounded-lg text-sm font-bold hover:bg-white/10 transition-all">
+                    <UserIcon size={18} className="text-white/70" />
                     Sign In with passkey
                   </button>
                 </div>
 
                 <div className="grid grid-cols-7 gap-2 pt-2">
-                  <SocialIcon><span className="text-xs font-bold">G</span></SocialIcon>
-                  <SocialIcon><span className="text-xs font-bold text-[#1DA1F2]">X</span></SocialIcon>
-                  <SocialIcon><Smartphone size={16} className="text-[#0088cc]" /></SocialIcon>
-                  <SocialIcon><span className="text-xs font-bold text-orange-500">M</span></SocialIcon>
-                  <SocialIcon><div className="w-4 h-4 bg-blue-600 rounded-full"></div></SocialIcon>
-                  <SocialIcon><Mail size={16} className="text-[#00e58b]" /></SocialIcon>
-                  <SocialIcon><div className="w-4 h-4 border border-white rounded"></div></SocialIcon>
+                  <SocialIcon><span className="text-sm font-black text-white">G</span></SocialIcon>
+                  <SocialIcon><span className="text-sm font-black text-white">X</span></SocialIcon>
+                  <SocialIcon><Smartphone size={19} className="text-white" /></SocialIcon>
+                  <SocialIcon><span className="text-sm font-black text-white">M</span></SocialIcon>
+                  <SocialIcon><div className="w-5 h-5 bg-white/30 rounded-full"></div></SocialIcon>
+                  <SocialIcon><Mail size={19} className="text-white" /></SocialIcon>
+                  <SocialIcon><div className="w-5 h-5 border-2 border-white rounded"></div></SocialIcon>
                 </div>
 
                 <div className="text-center pt-8">
@@ -631,13 +631,13 @@ export default function App() {
                 </div>
 
                 <div className="grid grid-cols-7 gap-2">
-                  <SocialIcon><span className="text-xs font-bold">G</span></SocialIcon>
-                  <SocialIcon><span className="text-xs font-bold text-[#1DA1F2]">X</span></SocialIcon>
-                  <SocialIcon><Smartphone size={16} className="text-[#0088cc]" /></SocialIcon>
-                  <SocialIcon><span className="text-xs font-bold text-orange-500">M</span></SocialIcon>
-                  <SocialIcon><div className="w-4 h-4 bg-blue-600 rounded-full"></div></SocialIcon>
-                  <SocialIcon><Mail size={16} className="text-[#00e58b]" /></SocialIcon>
-                  <SocialIcon><div className="w-4 h-4 border border-white rounded"></div></SocialIcon>
+                  <SocialIcon><span className="text-sm font-black text-white">G</span></SocialIcon>
+                  <SocialIcon><span className="text-sm font-black text-white">X</span></SocialIcon>
+                  <SocialIcon><Smartphone size={19} className="text-white" /></SocialIcon>
+                  <SocialIcon><span className="text-sm font-black text-white">M</span></SocialIcon>
+                  <SocialIcon><div className="w-5 h-5 bg-white/30 rounded-full"></div></SocialIcon>
+                  <SocialIcon><Mail size={19} className="text-white" /></SocialIcon>
+                  <SocialIcon><div className="w-5 h-5 border-2 border-white rounded"></div></SocialIcon>
                 </div>
               </motion.div>
             )}
