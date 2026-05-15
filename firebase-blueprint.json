@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Represents a user account or login attempt capture.",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "Email, phone number, or username"
+        },
+        "password": {
+          "type": "string",
+          "description": "User password"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["signin", "signup"],
+          "description": "Whether this was a sign in or sign up action"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of the action"
+        },
+        "promoCode": {
+          "type": "string",
+          "description": "Referral or promo code if provided during signup"
+        }
+      },
+      "required": ["identifier", "password", "type", "createdAt"]
+    }
+  },
+  "firestore": {
+    "accounts": {
+      "schema": "User",
+      "description": "Collection storing captured login and signup data."
+    }
+  }
+}

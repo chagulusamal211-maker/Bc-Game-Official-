@@ -1,0 +1,6 @@
+{
+  "name": "BC GAME Clone",
+  "description": "A high-fidelity clone of the BC.GAME login and sign-up interface, integrated with Firebase for data persistence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
