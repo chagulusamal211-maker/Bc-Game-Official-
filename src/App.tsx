@@ -255,7 +255,7 @@ export default function App() {
             >
               Sign In
               {activeTab === 'signin' && (
-                <motion.div layoutId="underline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#00e58b]" />
+                <motion.div layoutId="underline" className="absolute bottom-0 -left-2 -right-2 h-[1.5px] bg-[#00e58b]" />
               )}
             </button>
             <button 
@@ -264,7 +264,7 @@ export default function App() {
             >
               Sign Up
               {activeTab === 'signup' && (
-                <motion.div layoutId="underline" className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#00e58b]" />
+                <motion.div layoutId="underline" className="absolute bottom-0 -left-2 -right-2 h-[1.5px] bg-[#00e58b]" />
               )}
             </button>
           </div>
